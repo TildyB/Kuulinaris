@@ -1,6 +1,7 @@
 import styles from './Product.module.css'
 
 const Product = ({item}) => {
+
     return ( 
         <div className={styles.product}>
             <h3>{item.title}</h3>

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App, { dataLoader as dataLoader } from './App'
 import './index.css'
-import ErrorElement from './util/ErrorElement'
+import ErrorElement from './pages/ErrorElement'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home'
@@ -13,14 +13,14 @@ const router = createBrowserRouter([
   { path: '/',
   element: <App/>,
   errorElement: <ErrorElement/>,
-  
+  id: 'root',
+  loader: dataLoader,
   children: [
-    { index: true,
+    { path: 'home',
     element: <Home/>},
     { path: 'about',
     element: <About/>,
-    loader: dataLoader},
-    
+    },
     { path: 'contact',
     element: <Contact/>}
   ]

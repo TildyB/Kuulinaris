@@ -1,8 +1,11 @@
 import Navbar from "./components/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
+import { useRouteLoaderData } from "react-router-dom";
+import GetData from "./util/getData";
 
 const App = () => {
+
     return (
         <>
             <Navbar/>
@@ -17,9 +20,8 @@ const App = () => {
  
 export default App;
 
-export function dataLoader () {
-    
-        let harcsa = 'Harcsamacsa'
-        return harcsa
+export async function dataLoader () {
+        
+        return await GetData()
       
 }
