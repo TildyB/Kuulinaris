@@ -1,27 +1,25 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import GetData from './util/getData';
-import Product from './components/Product';
+import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
 
-function App() {
-  const [data, setData] = useState();
+const App = () => {
+    return (
+        <>
+            <Navbar/>
 
-useEffect(() => {
-  const init = async () => {
-    setData(await GetData())
-  }
-  init()
-}, [])
+            <Outlet/>
 
-console.log(data);
-  return (
-    <div className="App">
-      <h1>Harcsa</h1>
-      <img src='http://localhost:3333/1.jpg' alt="" />
-      {data && data.map((item, i) => <Product key={i} {...{item}}/>)}
-    </div>
-  )
+            <Footer/>
+        </>
+
+     );
 }
+ 
+export default App;
 
-export default App
+export function dataLoader () {
+    
+        let harcsa = 'Harcsamacsa'
+        return harcsa
+      
+}

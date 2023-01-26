@@ -21,7 +21,6 @@ app.use(express.static('./assets/images'))
 //     fs.writeFileSync('assets/products.json', stringy) 
 // }
 
-addStuff()
 
 app.get('/', (req, res) => {
     const parsedData = JSON.parse(fs.readFileSync('./assets/products.json'))
