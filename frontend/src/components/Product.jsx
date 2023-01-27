@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Product.module.css'
 
 const Product = ({item}) => {
@@ -9,6 +10,7 @@ const Product = ({item}) => {
             <p>{item.description}</p>
             <p>€ {item.price}</p>
             <button>Adjál ilyet!</button>
+            <Link to={`product/${item.id}`}></Link>
         </div>
      );
 }

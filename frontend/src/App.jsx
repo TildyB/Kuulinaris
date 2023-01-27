@@ -6,9 +6,12 @@ import GetData from "./util/getData";
 
 const App = () => {
 
+    const products = useRouteLoaderData('root')
+
+
     return (
         <>
-            <Navbar/>
+            <Navbar {...{products}}/>
 
             <Outlet/>
 
