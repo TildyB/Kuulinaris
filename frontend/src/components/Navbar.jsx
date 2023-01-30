@@ -24,8 +24,8 @@ const Navbar = ({ products }) => {
         <Link to="contact">Contact</Link>
       </div>
       <div className={classes.categories} style={{ position: "relative" }}>
-        {newTypes.map((type) => (
-          <Link to={type}>
+        {newTypes.map((type, i) => (
+          <Link to={type} key={i}>
             <SubMenu {...{ type }} />
           </Link>
         ))}

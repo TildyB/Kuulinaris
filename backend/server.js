@@ -13,13 +13,14 @@ app.use(express.static('./assets/images'))
 //     const parsedData = JSON.parse(fs.readFileSync('./assets/products.json'))
    
 //     parsedData.forEach(item => {
-//         item.onSale = false
-//         item.discount = item.price
 //         item.id = uuidv4()
+//         item.articleNumber = item.cikkszam
+//         delete item.cikkszam;
 //     })
 //     let stringy = JSON.stringify(parsedData)
 //     fs.writeFileSync('assets/products.json', stringy) 
 // }
+
 
 
 app.get('/', (req, res) => {
