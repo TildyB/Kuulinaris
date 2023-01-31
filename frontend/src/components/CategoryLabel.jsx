@@ -4,8 +4,7 @@ import harryStyles from "./CategoryLabel.module.css";
 
 const CategoryLabel = ({subcat}) => {
 
-  const param = useParams()
-  console.log(param);
+
 
   return (
     <div className={harryStyles.card}>

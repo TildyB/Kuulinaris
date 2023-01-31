@@ -1,4 +1,5 @@
-import { useParams, useLocation } from "react-router-dom"
+import { useParams, useLocation, Link } from "react-router-dom"
+import CategoryLabel from "../components/CategoryLabel";
 import ProductPage  from "./ProductPage";
 
 const SubCategory = () => {
@@ -8,13 +9,25 @@ const SubCategory = () => {
   console.log(subcategory);
 
   const location = useLocation()
-  const { subcat, filteredProducts } = location.state
+  const subcat = location.state.subcat 
+  const filteredProducts = location.state.filteredProducts
+  // const { subcat, filteredProducts } = location.state
   console.log(filteredProducts);
  
   const subFilteredProducts = filteredProducts.filter(prod => prod.subcategory === subcat)
   console.log(subFilteredProducts);
 
   const subSubCategory = []
+  subFilteredProducts.map((product) => {
+
+    if (!subSubCategory.includes(product.subsubcategory)) {
+      subSubCategory.push(product.subsubcategory);
+    }
+    });
+
+
+
+  // const subSubFilteredProducts = subFilteredProducts.filter(prod => prod.subsubcategory )
 
   return(
     <>
@@ -22,7 +35,12 @@ const SubCategory = () => {
     <div>{subcat}</div>
     {subFilteredProducts[0].subsubcategory === "" ?
       <ProductPage {...{subFilteredProducts}} /> :
-      <p>van</p>
+      subSubCategory.map(subsubcat => (
+        // subFilteredProducts.filter(item => item.subsubcategory === subsubcat)
+        <Link to={subsubcat} key={subsubcat} state={{subsubcat, subFilteredProducts}} >
+          <CategoryLabel subcat={subsubcat}/>
+        </Link>
+      ) )
     }
 
     </>

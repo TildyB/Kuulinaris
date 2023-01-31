@@ -10,6 +10,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Category from './pages/Category'
 import SubCategory from './pages/SubCategory'
+import ProductPage from './pages/ProductPage'
 
 const router = createBrowserRouter([
   { path: '/',
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
       element: <Category/>, 
     },
     {path: ':category/:subcategory', 
-        element: <SubCategory />}
+        element: <SubCategory />},
+    {path: ':category/:subcategory/:subsubcategory',
+        element:<ProductPage/>},
   ]
 }
 ])
