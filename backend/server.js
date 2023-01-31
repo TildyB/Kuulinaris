@@ -13,13 +13,24 @@ app.use(express.static('./assets/images'))
 //     const parsedData = JSON.parse(fs.readFileSync('./assets/products.json'))
    
 //     parsedData.forEach(item => {
-//         item.id = uuidv4()
-//         item.articleNumber = item.cikkszam
-//         delete item.cikkszam;
+        
+//         let newname = ""
+//         for (let i = 0; i < item.filename.length; i++) {
+//             if (item.filename[i+1] === ".") {
+//                 newname += item.filename[i]
+//                 item.articleNumber = newname
+//                 return newname
+//             } else {
+//                 newname += item.filename[i]
+//                 item.articleNumber = newname
+//             }
+//         }
 //     })
 //     let stringy = JSON.stringify(parsedData)
 //     fs.writeFileSync('assets/products.json', stringy) 
 // }
+
+// addStuff()
 
 
 

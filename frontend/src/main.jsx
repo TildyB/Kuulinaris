@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Category from './pages/Category'
+import SubCategory from './pages/SubCategory'
 
 const router = createBrowserRouter([
   { path: '/',
@@ -18,14 +19,17 @@ const router = createBrowserRouter([
   loader: dataLoader,
   children: [
     { path: 'home',
-    element: <Home/>},
+      element: <Home/>},
     { path: 'about',
-    element: <About/>,
+      element: <About/>,
     },
     { path: 'contact',
-    element: <Contact/>},
-    { path: ':type',
-    element: <Category/>},
+      element: <Contact/>},
+    { path: ':category',
+      element: <Category/>, 
+    },
+    {path: ':category/:subcategory', 
+        element: <SubCategory />}
   ]
 }
 ])

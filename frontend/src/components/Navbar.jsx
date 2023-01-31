@@ -4,13 +4,14 @@ import SubMenu from "./SubMenu";
 
 const Navbar = ({ products }) => {
   const productTypes = [];
-
   products.map((product) => {
-    if (!productTypes.includes(product.type)) {
-      productTypes.push(product.type);
+    if (!productTypes.includes(product.category)) {
+      productTypes.push(product.category);
     }
   });
+  
   const newTypes = productTypes.map((type) => {
+    console.log(type);
     const firstLetter = type.charAt(0).toUpperCase();
     const rest = type.slice(1).toLowerCase();
     return firstLetter + rest;
