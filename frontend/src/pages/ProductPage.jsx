@@ -8,9 +8,6 @@ const ProductPage = ({subFilteredProducts}) => {
   const subsubcat = location.state.subsubcat
   const data = location.state.subFilteredProducts
 
-  console.log("data",data);
-  console.log("subsubcat",subsubcat);
-
 
   let filteredData
 
@@ -20,7 +17,6 @@ const ProductPage = ({subFilteredProducts}) => {
 
 }
 
-console.log(filteredData)
 
 
   return(

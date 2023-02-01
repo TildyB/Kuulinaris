@@ -5,17 +5,16 @@ import ProductPage  from "./ProductPage";
 const SubCategory = () => {
 
   const { category, subcategory } = useParams()
-  console.log(category);
-  console.log(subcategory);
+  
 
   const location = useLocation()
   const subcat = location.state.subcat 
   const filteredProducts = location.state.filteredProducts
   // const { subcat, filteredProducts } = location.state
-  console.log(filteredProducts);
+  
  
   const subFilteredProducts = filteredProducts.filter(prod => prod.subcategory === subcat)
-  console.log(subFilteredProducts);
+  
 
   const subSubCategory = []
   subFilteredProducts.map((product) => {

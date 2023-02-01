@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useRouteLoaderData } from "react-router-dom";
 import GetData from "./util/getData";
+import { CartProvider } from "./context/CartContext";
 
 const App = () => {
 
@@ -10,13 +11,13 @@ const App = () => {
 
 
     return (
-        <>
+        <CartProvider>
             <Navbar {...{products}}/>
 
             <Outlet/>
 
             <Footer/>
-        </>
+        </CartProvider>
 
      );
 }

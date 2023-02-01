@@ -7,8 +7,7 @@ const Category = () =>{
     const params = useParams()
     const products = useRouteLoaderData('root')
     const filteredProducts = products.filter(product => product.category === params.category)
-    console.log(products[0].category)
-    console.log(params.category);
+    
 
     const productSubCategories = [];
     filteredProducts.map((product) => {
@@ -17,7 +16,7 @@ const Category = () =>{
     }
     });
     
-    console.log(filteredProducts);
+
     
     return(
         <div style={{backgroundColor: "lightgrey"}}>

@@ -16,7 +16,7 @@ function Home() {
   }, [])
 
 
-console.log('Home test', test);
+
 
   return (
     <div>
