@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import Category from './pages/Category'
 import SubCategory from './pages/SubCategory'
 import ProductPage from './pages/ProductPage'
+import Cart from './pages/Cart'
 
 const router = createBrowserRouter([
   { path: '/',
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     },
     { path: 'contact',
       element: <Contact/>},
+    {
+      path: 'cart',
+      element: <Cart/>
+    },
     { path: ':category',
       element: <Category/>, 
     },

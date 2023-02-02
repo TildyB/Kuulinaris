@@ -23,6 +23,7 @@ const Navbar = ({ products }) => {
         <Link to="home">Home</Link>
         <Link to="about">About</Link>
         <Link to="contact">Contact</Link>
+        <Link to='cart'>Cart</Link>
       </div>
       <div className={classes.categories} style={{ position: "relative" }}>
         {newTypes.map((type, i) => (

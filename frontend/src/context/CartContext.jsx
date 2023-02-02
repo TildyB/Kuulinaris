@@ -3,36 +3,36 @@ import { createContext, useState } from "react";
 const CartContext = createContext()
 
 export function CartProvider ({children}) {
-    const [items, setItems] = useState([]);
     
-    const addCartItem = (item) => {
-        console.log(items);
-        let newArr = items
-        if (newArr.length > 0) {
-            for (const prod of newArr) {
-                if (prod.id === item.id) {
-                    console.log('nem ures de van egyezes');
-                    prod.pieces++
-                } else {
-                    console.log('nem ures, nincs egyezes');
-                    item.pieces = 1
-                    newArr.push(item)
-                }
+
+    const[cartItems,setCartItems] = useState([])
+    const addCart = (item) =>{
+        if(cartItems.length==0){
+            item.pieces=1;
+            setCartItems([item])
+        }else{
+            let isSame = cartItems.some(prod => prod.id === item.id)
+            if(!isSame){            
+                item.pieces=1;
+                setCartItems(prev => [...prev,item])
+            }else{
+                setCartItems(cartItems.map((product) =>{
+                    if(item.id ===product.id){
+                       return {...product, pieces:product.pieces+1}
+                    }else{
+                        return product
+                    }
+               }))
             }
-        } else {
-            console.log('ures a kosar');
-            item.pieces = 1
-            newArr.push(item)
-            
         }
-        // setItems(newArr)
-        console.log('Joozsi', newArr);
-       
-        
+        console.log('CartContext',cartItems)
     }
 
+    
+
+
     return (
-        <CartContext.Provider value={{addCartItem}}>
+        <CartContext.Provider value={{cartItems, addCart, setCartItems}}>
             {children}
         </CartContext.Provider>
     )
