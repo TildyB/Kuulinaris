@@ -33,7 +33,7 @@ const Navbar = ({ products }) => {
         <Link to="contact">Contact</Link>
         <Link to="cart">Cart</Link>
         <div onClick={openDrawer}>
-          <span className="material-icons-outlined">shopping_cart</span>
+          <span className="material-symbols-outlined">shopping_cart</span>
         </div>
       </div>
       <div className={classes.categories} style={{ position: "relative" }}>

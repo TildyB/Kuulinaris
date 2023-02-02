@@ -16,13 +16,7 @@ export function CartProvider ({children}) {
                 item.pieces=1;
                 setCartItems(prev => [...prev,item])
             }else{
-                setCartItems(cartItems.map((product) =>{
-                    if(item.id ===product.id){
-                       return {...product, pieces:product.pieces+1}
-                    }else{
-                        return product
-                    }
-               }))
+                setCartItems(cartItems.map((product) =>item.id ===product.id ? {...product, pieces:product.pieces+1} : product))
             }
         }
         console.log('CartContext',cartItems)
