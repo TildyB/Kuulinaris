@@ -4,5 +4,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.443);
+    background: rgba(0, 0, 0, 0.587);
 }
+
+#slider {
+    position: absolute;
+    right:0;
+    top: 0;
+    background-color: white;
+    width: 350px;
+    height: 100%;
+}
+
