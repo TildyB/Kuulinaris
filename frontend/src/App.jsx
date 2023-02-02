@@ -13,7 +13,7 @@ const App = () => {
     return (
         <CartProvider>
             <Navbar {...{products}}/>
-
+                
             <Outlet/>
 
             <Footer/>
