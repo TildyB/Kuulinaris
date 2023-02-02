@@ -20,7 +20,7 @@ const router = createBrowserRouter([
   id: 'root',
   loader: dataLoader,
   children: [
-    { path: 'home',
+    { index: true,
       element: <Home/>},
     { path: 'about',
       element: <About/>,

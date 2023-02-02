@@ -8,14 +8,14 @@ import { useState } from "react";
 const Navbar = ({ products }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const productTypes = [];
+  const productCategory = [];
   products.map((product) => {
-    if (!productTypes.includes(product.category)) {
-      productTypes.push(product.category);
+    if (!productCategory.includes(product.category)) {
+      productCategory.push(product.category);
     }
   });
 
-  const newTypes = productTypes.map((type) => {
+  const newCategory = productCategory.map((type) => {
     const firstLetter = type.charAt(0).toUpperCase();
     const rest = type.slice(1).toLowerCase();
     return firstLetter + rest;
@@ -25,10 +25,13 @@ const Navbar = ({ products }) => {
     setIsOpen(!isOpen);
   };
 
+
+
+
   return (
     <nav className={classes.nav}>
       <div>
-        <Link to="home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="about">About</Link>
         <Link to="contact">Contact</Link>
         <Link to="cart">Cart</Link>
@@ -37,9 +40,9 @@ const Navbar = ({ products }) => {
         </div>
       </div>
       <div className={classes.categories} style={{ position: "relative" }}>
-        {newTypes.map((type, i) => (
-          <Link to={type} key={i}>
-            <SubMenu {...{ type }} />
+        {newCategory.map((category, i) => (
+          <Link to={category} key={i}>
+            <SubMenu {...{ category, products }} />
           </Link>
         ))}
       </div>

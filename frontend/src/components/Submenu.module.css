@@ -1,6 +1,9 @@
 .subMenuOn{
     position: absolute;
-    left: 30%;
-    border: 3px dotted red;
-    width: 40%;
+
+    width: 100%;
+    color: whitesmoke;
+    background: rgb(225, 225, 236);
 }
+
+

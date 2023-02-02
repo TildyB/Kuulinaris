@@ -23,10 +23,19 @@ const DrawerMenu = ({ setIsOpen }) => {
     <>
       <div className={styles.background} onClick={() => setIsOpen(false)}></div>
       <div id={styles.slider}>
-        {cartItems.length > 0 &&
-          cartItems.map((item) => <CartProduct key={item.id} {...{ item }} />)}
-        <h3>{sum} Ft</h3>
-        <Link to="cart">Tovább a kosárra</Link>
+        {cartItems.length > 0 ? (
+          <div>
+            {cartItems.map((item) => (
+            <div>
+              <CartProduct key={item.id} {...{ item }} />
+            </div>
+            ))}
+             <h3>{sum} Ft</h3>
+              <Link to="cart">Tovább a kosárra</Link>
+          </div>
+        ) : (
+          <h1>Üres a kosarad! {":("}</h1>
+        )}
       </div>
     </>
   );

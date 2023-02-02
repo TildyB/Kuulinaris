@@ -10,9 +10,7 @@ function Home() {
   
   const test = useRouteLoaderData('root')
   useEffect(() => {
-    
-      setData(test)
-    
+      setData(test.filter((item)=> item.onSale === true))
   }, [])
 
 

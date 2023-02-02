@@ -27,6 +27,7 @@ const Category = () =>{
             </Link> 
             )
         )}
+        <Link to="/">Go Home</Link>
         </div>
     )
 }

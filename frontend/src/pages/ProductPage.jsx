@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom"
 import Product from "../components/Product"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const ProductPage = ({subFilteredProducts}) => {
+
+  const navigate = useNavigate()
   
   const location = useLocation()
   const subsubcat = location.state.subsubcat
@@ -27,7 +29,7 @@ const ProductPage = ({subFilteredProducts}) => {
       : filteredData.map(prod => <Product key={prod.id} item={prod}/> )
         }
     </div>
-        <Link to=".." relative="path">Back</Link>
+    <button onClick={() => navigate(-1)}>Go back</button>
     </>
   )
 }
