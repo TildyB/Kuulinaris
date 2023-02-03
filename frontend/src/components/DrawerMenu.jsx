@@ -24,10 +24,10 @@ const DrawerMenu = ({ setIsOpen }) => {
       <div className={styles.background} onClick={() => setIsOpen(false)}></div>
       <div id={styles.slider}>
         {cartItems.length > 0 ? (
-          <div>
+          <div >
             {cartItems.map((item) => (
-            <div>
-              <CartProduct key={item.id} {...{ item }} />
+            <div key={item.id}>
+              <CartProduct  {...{ item }} />
             </div>
             ))}
              <h3>{sum} Ft</h3>

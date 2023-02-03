@@ -5,8 +5,8 @@ import SubMenu from "./SubMenu";
 import DrawerMenu from "./DrawerMenu";
 import { useState } from "react";
 
-const Navbar = ({ products }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({ products, isOpen, setIsOpen }) => {
+  
 
   const productCategory = [];
   products.map((product) => {
@@ -41,9 +41,10 @@ const Navbar = ({ products }) => {
       </div>
       <div className={classes.categories} style={{ position: "relative" }}>
         {newCategory.map((category, i) => (
-          <Link to={category} key={i}>
-            <SubMenu {...{ category, products }} />
-          </Link>
+         
+         
+            <SubMenu key={i} {...{ category, products }} />
+         
         ))}
       </div>
       {isOpen && <DrawerMenu {...{ setIsOpen }} />}
