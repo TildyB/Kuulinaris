@@ -8,6 +8,7 @@ const Product = ({ item }) => {
   const navigate = useNavigate();
 
 
+
   return (
     <div className={styles.product}>
       <Link to={ item.title + `/` + item.articleNumber1 } state={{item}}>
@@ -15,7 +16,7 @@ const Product = ({ item }) => {
         <img src={`http://localhost:3333/${item.filename}`} alt="" />
       </Link>
         <p>{item.price} Ft</p>
-      <button onClick={() => addCart(item)}>Adjál ilyet!</button>
+      <button onClick={() => addCart(item)}>Kosárba</button>
     </div>
   );
 };

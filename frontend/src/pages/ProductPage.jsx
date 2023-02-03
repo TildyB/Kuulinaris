@@ -20,8 +20,6 @@ const ProductPage = ({subFilteredProducts}) => {
 }
 
 
-
-
   return(
     <>
     <div>
