@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Submenu.module.css";
+import slideTransitions from './SlideTransitions.module.css'
+
+import { CSSTransition } from "react-transition-group";
 
 const SubMenu = ({ category, products }) => {
   const [isHover, setIsHover] = useState(false);
-
+  const nodeRef = useRef(null);
   const filteredProducts = products.filter(
     (prod) => prod.category === category
   );
@@ -26,13 +29,20 @@ const SubMenu = ({ category, products }) => {
           {category}
         </h1>
       </Link>
-      {isHover && (
+      <CSSTransition
+        in={isHover}
+        nodeRef={nodeRef}
+        timeout={300}
+        classNames={slideTransitions}
+        unmountOnExit
+      >
         <div
+          ref={nodeRef}
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
-          className={isHover ? styles.subMenuOn : styles.subMenuOff}
+          className={styles.subMenu}
         >
-          <div>
+          <div className={styles.box}>
             {productSubCategory.map((subcat) => (
               <div key={subcat}>
                 <Link
@@ -46,7 +56,7 @@ const SubMenu = ({ category, products }) => {
             ))}
           </div>
         </div>
-      )}
+      </CSSTransition>
     </div>
   );
 };

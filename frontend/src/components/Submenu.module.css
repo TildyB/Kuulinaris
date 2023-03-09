@@ -1,9 +1,26 @@
-.subMenuOn{
-    position: absolute;
-
-    width: 100%;
-    color: whitesmoke;
-    background: rgb(225, 225, 236);
+.subMenu {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  color: whitesmoke;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.725),
+    rgb(225, 225, 236)
+  );
+  backdrop-filter: blur(2px);
+  box-shadow: 1px 22px 85px -47px rgba(0, 0, 0, 0.508);
+  -webkit-box-shadow: 1px 22px 85px -47px rgba(0, 0, 0, 0.508);
+  -moz-box-shadow: 1px 22px 85px -47px rgba(0, 0, 0, 0.508);
 }
-
-
+.box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

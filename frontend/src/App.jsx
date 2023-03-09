@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Menubar from "./components/MenuBar";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useRouteLoaderData } from "react-router-dom";
@@ -15,13 +15,12 @@ const App = () => {
 
     return (
         <CartProvider>
-            <div className={isOpen? "hideOverflow" : ""}>
-            <Navbar {...{products, setIsOpen, isOpen}}/>
+            <Menubar {...{products, setIsOpen, isOpen}}/>
                 
             <Outlet context={isOpen}/>
 
             <Footer/>
-            </div>
+
         </CartProvider>
 
      );
