@@ -31,7 +31,7 @@ const DrawerMenu = ({ setIsOpen }) => {
             </div>
             ))}
              <h3>{sum} Ft</h3>
-              <Link to="cart">Tovább a kosárra</Link>
+              <Link onClick={() => setIsOpen(false)}to="cart">Tovább a kosárra</Link>
           </div>
         ) : (
           <h1>Üres a kosarad! {":("}</h1>

@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3333
 const cors = require('cors')
-const fs = require('fs')
-const { v4: uuidv4} = require('uuid')
+const mongoose = require('mongoose')
+const Products = require('./model/Products')
 
 
 app.use(cors())
@@ -32,11 +32,18 @@ app.use(express.static('./assets/images'))
 
 // addStuff()
 
+require('dotenv').config()
+
+mongoose.connect('mongodb+srv://hospitalsDB:hospitalsDB2023@hospital.shz8y3u.mongodb.net/Kuulinaris')
+// .then(
+//     (response) => {console.log("Működik!")} 
+// ).catch(err => console.log("Jaj error van"))
 
 
-app.get('/', (req, res) => {
-    const parsedData = JSON.parse(fs.readFileSync('./assets/products.json'))
-    res.send(parsedData)
+app.get('/', async (req, res) => {
+   
+    const allProducts = await Products.find()
+    res.send(allProducts)
 })
 
 

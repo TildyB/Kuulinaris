@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./Submenu.module.css";
 import { CSSTransition } from "react-transition-group";
 import "../harcsamacska.css";
-import { useHover } from "../hooks/useHover";
+// import { useHover } from "../hooks/useHover";
 
 const SubMenu = ({ category, products }) => {
   // const [hoverRef, isHovered] = useHover();
@@ -44,13 +44,13 @@ const SubMenu = ({ category, products }) => {
       </NavLink>
       <CSSTransition
         in={opened}
-        nodeRef={transRef}
+        noderef={transRef}
         timeout={300}
         classNames={style}
         unmountOnExit
       >
         <div
-          nodeRef={transRef}
+          noderef={transRef}
           onMouseEnter={() => setOpened(true)}
           onMouseLeave={() => setOpened(false)}
           className={styles.subMenu}
