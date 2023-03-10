@@ -1,16 +1,18 @@
-import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState, } from "react";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Submenu.module.css";
-import slideTransitions from './SlideTransitions.module.css'
-
 import { CSSTransition } from "react-transition-group";
+import "../harcsamacska.css";
+import { useHover } from "../hooks/useHover";
 
 const SubMenu = ({ category, products }) => {
-  const [isHover, setIsHover] = useState(false);
-  const nodeRef = useRef(null);
+  // const [hoverRef, isHovered] = useHover();
+  const [opened, setOpened] = useState(false);
   const filteredProducts = products.filter(
     (prod) => prod.category === category
   );
+
+  const {transRef} = useRef()
 
   const productSubCategory = [];
   filteredProducts.map((product) => {
@@ -19,27 +21,38 @@ const SubMenu = ({ category, products }) => {
     }
   });
 
+  const style = {
+    appear: "alert-appear",
+    appearActive: "alert-active-appear",
+    appearDone: "alert-done-appear",
+    enter: "alert-enter",
+    enterActive: "alert-enter-active",
+    enterDone: "alert-enter-done",
+    exit: "alert-exit",
+    exitActive: "alert-exit-active",
+    exitDone: "alert-done-exit",
+  };
+
   return (
     <div>
-      <Link to={category}>
-        <h1
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
-        >
-          {category}
-        </h1>
-      </Link>
+      <NavLink
+        to={category}
+        onMouseEnter={() => setOpened(true)}
+        onMouseLeave={() => setOpened(false)}
+      >
+        <h1>{category}</h1>
+      </NavLink>
       <CSSTransition
-        in={isHover}
-        nodeRef={nodeRef}
+        in={opened}
+        nodeRef={transRef}
         timeout={300}
-        classNames={slideTransitions}
+        classNames={style}
         unmountOnExit
       >
         <div
-          ref={nodeRef}
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          nodeRef={transRef}
+          onMouseEnter={() => setOpened(true)}
+          onMouseLeave={() => setOpened(false)}
           className={styles.subMenu}
         >
           <div className={styles.box}>

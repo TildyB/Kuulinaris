@@ -1,0 +1,34 @@
+.alert-enter {
+    opacity: 0;
+    height: 0px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .alert-enter-active {
+    opacity: 1;
+    height: 200px;
+    
+  }
+
+  .alert-enter-done {
+    opacity: 1;
+    height: 200px;
+  }
+  
+  .alert-exit {
+    opacity: 1;
+    height: 200px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .alert-exit-active {
+    opacity: 0;
+    height: 0px;
+    
+  }
+
+  .alert-done-exit {
+    opacity: 0;
+    height: 0px;
+   
+  }
