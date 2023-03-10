@@ -2,8 +2,8 @@ import { useRef, useState, } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Submenu.module.css";
 import { CSSTransition } from "react-transition-group";
-import "../harcsamacska.css";
-// import { useHover } from "../hooks/useHover";
+import "../DropDown.css";
+
 
 const SubMenu = ({ category, products }) => {
   // const [hoverRef, isHovered] = useHover();
