@@ -35,9 +35,11 @@ app.use(express.static('./assets/images'))
 require('dotenv').config()
 
 mongoose.connect('mongodb+srv://hospitalsDB:hospitalsDB2023@hospital.shz8y3u.mongodb.net/Kuulinaris')
-// .then(
-//     (response) => {console.log("Működik!")} 
-// ).catch(err => console.log("Jaj error van"))
+.then(
+    app.listen(port, () => {
+        console.log(`Megy a szerver a ${port}-es porton` );
+    })
+).catch(err => console.log("Jaj error van"))
 
 
 app.get('/', async (req, res) => {
@@ -47,6 +49,4 @@ app.get('/', async (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`Megy a szerver a ${port}-es porton` );
-})
+

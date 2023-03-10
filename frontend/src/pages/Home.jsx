@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import MainPageProduct from "../components/MainPageProduct";
 import { useRouteLoaderData } from "react-router-dom";
 
+
+
 function Home() {
   const [data, setData] = useState();
 
@@ -11,8 +13,10 @@ function Home() {
   }, []);
 
   return (
+    <div id="wrapper">
     <div className="container">
       {data && data.map((item, i) => <MainPageProduct key={i} {...{ item }} />)}
+    </div>
     </div>
   );
 }

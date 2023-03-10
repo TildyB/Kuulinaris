@@ -4,14 +4,15 @@
   box-sizing: border-box;
 }
 
-#root {
+#wrapper{
   display: flex;
+  width: 100vw;
   justify-content: center;
-  align-items: center;
+  padding: 100px;
 }
 
+
 .container {
-  padding-top: 120px;
   max-width: 1280px;
   display: flex;
   justify-content: center;
@@ -21,9 +22,17 @@
 
 
 footer {
-  position: fixed;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100vw;
+  background: orangered;
+  position: relative;
+  left: 0;
   bottom: 0;
-  margin-bottom: 50px;
+  
 }
 
 
