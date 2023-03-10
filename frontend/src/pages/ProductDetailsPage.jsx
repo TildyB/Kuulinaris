@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styles from "./ProductDetailsPage.module.css";
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
 
 const ProductDetailsPage = () => {
   const location = useLocation();
@@ -9,6 +11,7 @@ const ProductDetailsPage = () => {
 
   const [value, setValue] = useState(1);
   const [disable, setDisable] = useState(false);
+  const { addCart } = useContext(CartContext);
 
  
   const onChange = (e) => {
@@ -26,6 +29,8 @@ const ProductDetailsPage = () => {
       setDisable(false)
     }
   }, [value])
+
+
 
 
   return (
@@ -59,7 +64,7 @@ const ProductDetailsPage = () => {
         <h3>Nincs rendelhető mennyiség!</h3>
       )}
 
-      <button> Kosárba </button>
+      <button onClick={() => addCart(item)}> Kosárba </button>
     </div>
   );
 };
